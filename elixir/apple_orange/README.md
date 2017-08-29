@@ -1,7 +1,6 @@
 # AppleOrange
 
-## For HackerRank Problem [Apple and
-Orange](https://www.hackerrank.com/challenges/apple-and-orange/problem)
+For HackerRank problem [Apple and Orange](https://www.hackerrank.com/challenges/apple-and-orange/problem).
 
 ## Installation
 
