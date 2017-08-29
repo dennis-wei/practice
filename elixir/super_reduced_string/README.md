@@ -1,5 +1,7 @@
 # SuperReducedString
 
+For HackerRank problem [Super Reduced String](https://www.hackerrank.com/challenges/reduced-string/problem)
+
 **TODO: Add description**
 
 ## Installation
