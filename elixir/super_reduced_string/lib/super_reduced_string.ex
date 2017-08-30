@@ -10,33 +10,31 @@ defmodule SuperReducedString do
 
   """
   def main(input) do
-    super_reduce([], input, false) |> IO.puts
+    input
+      |> to_charlist
+      |> super_reduce([], false)
+      |> get_string
   end
 
-  def super_reduce(head, hd <> tail, change_made) do
-    snd = hd(tail)
+  def get_string(input) do
+    case input do
+      [] -> "Empty String"
+       _ -> input |> to_string
+    end
+  end
+
+  def super_reduce([fst | tail], acc, change_made) do
     cond do
-      fst == snd -> super_reduce(head, remove_consecutive(tl(tail), fst), true)
-      true -> super_reduce([head | fst], tail, change_made)
+      tail != [] && fst == hd(tail) -> super_reduce(tl(tail), acc, true)
+      true -> super_reduce(tail, acc ++ [fst], change_made)
     end
   end
 
-  def super_reduce(head, _, change_made) do
+  def super_reduce([], acc, change_made) do
     cond do
-      change_made -> super_reduce([], head, false)
-      true -> head
+      change_made -> super_reduce(acc, [], false)
+      true -> acc
     end
-  end
-
-  def remove_consecutive(hd <> tail, elem) do
-    case hd do
-      ^elem -> remove_consecutive(tail, elem)
-      _ -> [hd | tail]
-    end
-  end
-
-  def remove_consecutive(_, elem) do
-    []
   end
 
 end
